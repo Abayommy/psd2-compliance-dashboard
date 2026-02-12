@@ -49,8 +49,8 @@ const COMPLIANCE_ITEMS = [
   ]},
   { area: "API Standards", items: [
     { req: "Berlin Group NextGenPSD2 v1.3.x endpoints", status: "done" },
-    { req: "LuxHub ASPSP gateway integration", status: "done" },
-    { req: "POST /confirmation routing via LuxHub", status: "done" },
+    { req: "ASPSP Gateway integration", status: "done" },
+    { req: "POST /confirmation routing via ASPSP Gateway", status: "done" },
     { req: "Payment cancellation (DELETE /payments)", status: "in-progress" },
     { req: "Funds confirmation (PIIS) endpoint", status: "in-progress" },
   ]},
@@ -212,7 +212,7 @@ export default function PSD2Dashboard() {
               <span className="gradient-text">Open Banking</span>{" "}
               <span style={{ color: "#F1F5F9" }}>API Compliance</span>
             </h1>
-            <p style={{ color: "#64748B", fontSize: 13, marginTop: 4 }}>Berlin Group NextGenPSD2 · LuxHub ASPSP Gateway · Multi-Entity (LU/IE)</p>
+            <p style={{ color: "#64748B", fontSize: 13, marginTop: 4 }}>Berlin Group NextGenPSD2 · ASPSP Gateway · Multi-Entity (LU/IE)</p>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ padding: "6px 14px", borderRadius: 20, background: "rgba(52,211,153,0.1)", border: "1px solid rgba(52,211,153,0.2)", display: "flex", alignItems: "center", gap: 6 }}>
@@ -300,7 +300,7 @@ export default function PSD2Dashboard() {
               <div className="card" style={{ padding: 24 }}>
                 <h3 style={{ fontSize: 14, fontWeight: 600, marginBottom: 16, color: "#CBD5E1" }}>Implementation Timeline</h3>
                 {[
-                  { phase: "Phase 1 — Foundation", date: "Oct–Dec 2025", status: "done", items: "LuxHub connectivity, consent APIs, AIS endpoints" },
+                  { phase: "Phase 1 — Foundation", date: "Oct–Dec 2025", status: "done", items: "ASPSP Gateway connectivity, consent APIs, AIS endpoints" },
                   { phase: "Phase 2 — Payments", date: "Jan–Feb 2026", status: "done", items: "PIS initiation, status tracking, SCA integration" },
                   { phase: "Phase 3 — Compliance", date: "Mar 2026", status: "in-progress", items: "Payment cancellation, PIIS, device binding" },
                   { phase: "Phase 4 — Go-Live", date: "Apr 2026", status: "planned", items: "Production deployment, regulatory sign-off, monitoring" },
@@ -399,7 +399,7 @@ export default function PSD2Dashboard() {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
               <div>
                 <h3 style={{ fontSize: 16, fontWeight: 600, color: "#CBD5E1" }}>Consent Lifecycle Flow</h3>
-                <p style={{ fontSize: 12, color: "#64748B", marginTop: 2 }}>Interactive PSD2 consent journey — TPP to ASPSP via LuxHub</p>
+                <p style={{ fontSize: 12, color: "#64748B", marginTop: 2 }}>Interactive PSD2 consent journey — TPP to ASPSP via gateway</p>
               </div>
               <button className="play-btn" onClick={playConsent}>
                 {isPlaying ? "⏸ Playing..." : "▶ Simulate Flow"}
@@ -446,11 +446,11 @@ export default function PSD2Dashboard() {
                     {consentStage === 1 && <>
                       <div style={{ padding: 14, borderRadius: 10, background: "rgba(255,255,255,0.03)" }}>
                         <div className="mono" style={{ fontSize: 11, color: "#6366F1" }}>OAuth2 Redirect</div>
-                        <div style={{ fontSize: 12, color: "#64748B", marginTop: 4 }}>PSU browser redirected to ASPSP authorization URL via LuxHub</div>
+                        <div style={{ fontSize: 12, color: "#64748B", marginTop: 4 }}>PSU browser redirected to ASPSP authorization URL via gateway</div>
                       </div>
                       <div style={{ padding: 14, borderRadius: 10, background: "rgba(255,255,255,0.03)" }}>
-                        <div className="mono" style={{ fontSize: 11, color: "#6366F1" }}>TPDD Integration</div>
-                        <div style={{ fontSize: 12, color: "#64748B", marginTop: 4 }}>Authentication handled through TPDD platform</div>
+                        <div className="mono" style={{ fontSize: 11, color: "#6366F1" }}>ASPSP Auth Portal</div>
+                        <div style={{ fontSize: 12, color: "#64748B", marginTop: 4 }}>Authentication handled through bank's digital identity platform</div>
                       </div>
                     </>}
                     {consentStage === 2 && <>
@@ -504,7 +504,7 @@ export default function PSD2Dashboard() {
         {activeTab === "sca" && (
           <div style={{ animation: "fadeUp 0.4s ease" }}>
             <h3 style={{ fontSize: 16, fontWeight: 600, color: "#CBD5E1", marginBottom: 4 }}>Strong Customer Authentication Approaches</h3>
-            <p style={{ fontSize: 12, color: "#64748B", marginBottom: 20 }}>PSD2 RTS on SCA — Authentication models supported via LuxHub gateway</p>
+            <p style={{ fontSize: 12, color: "#64748B", marginBottom: 20 }}>PSD2 RTS on SCA — Authentication models supported via ASPSP Gateway</p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 24 }}>
               {SCA_METHODS.map((m, i) => (
                 <div key={i} className="sca-card" style={{ animation: `fadeUp 0.4s ease ${i * 0.1}s both`, position: "relative" }}>
@@ -597,3 +597,4 @@ export default function PSD2Dashboard() {
     </div>
   );
 }
+
