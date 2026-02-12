@@ -14,7 +14,7 @@
 Financial institutions operating in the European Economic Area must comply with **PSD2 (Payment Services Directive 2)** by exposing standardized Open Banking APIs to licensed Third-Party Providers (TPPs). This dashboard was built to demonstrate end-to-end product management of a PSD2 compliance program, including:
 
 - **13 Berlin Group NextGenPSD2 endpoints** across AIS, PIS, and PIIS service groups
-- **LuxHub ASPSP gateway integration** for multi-bank connectivity
+- **ASPSP Gateway integration** for multi-bank connectivity
 - **Strong Customer Authentication (SCA)** with device binding and dynamic linking
 - **Multi-entity regulatory alignment** across CSSF (Luxembourg) and CBI (Ireland) jurisdictions
 - **Consent lifecycle management** with 90-day validity, revocation, and re-authentication
@@ -69,8 +69,8 @@ This project reflects real-world experience leading PSD2 Open Banking implementa
 │        └───────────────┼─────────────────┘              │
 │                        │                                │
 │              ┌─────────▼──────────┐                     │
-│              │   LuxHub Gateway   │                     │
-│              │   (ASPSP Proxy)    │                     │
+│              │   ASPSP Gateway    │                     │
+│              │   (API Proxy)      │                     │
 │              └─────────┬──────────┘                     │
 └────────────────────────┼────────────────────────────────┘
                          │
@@ -151,7 +151,7 @@ This project reflects real-world experience leading PSD2 Open Banking implementa
 
 | Phase | Timeline | Status | Deliverables |
 |-------|----------|--------|--------------|
-| **Phase 1 — Foundation** | Oct–Dec 2025 | ✅ Complete | LuxHub connectivity, consent APIs, AIS endpoints |
+| **Phase 1 — Foundation** | Oct–Dec 2025 | ✅ Complete | ASPSP Gateway connectivity, consent APIs, AIS endpoints |
 | **Phase 2 — Payments** | Jan–Feb 2026 | ✅ Complete | PIS initiation, status tracking, SCA integration |
 | **Phase 3 — Compliance** | Mar 2026 | 🟡 In Progress | Payment cancellation, PIIS, device binding |
 | **Phase 4 — Go-Live** | Apr 2026 | ⬜ Planned | Production deployment, regulatory sign-off, monitoring |
